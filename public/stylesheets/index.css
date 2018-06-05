@@ -1,0 +1,69 @@
+html, body {
+  background-color: #fff;
+}
+
+.logo {
+  text-align: center;
+  position: absolute;
+  width: 300px; height: 300px;
+  right: 180px; top: 150px; }
+  .logo h1 {
+    font-family: 'Lucida Grande', sans-serif;
+    font-weight: bold;
+    margin-top: 80px;
+    text-transform: uppercase;
+    color: #000;
+    font-size: 6rem; }
+.content {
+  clip-path: polygon(0 0, 65% 0, 50% 100%, 0 100%);
+  top: 0px; left: 0px;
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+  .content .content-form {
+    color: #fff;
+    text-transform: uppercase;
+    padding: 30px;
+    position: absolute;
+    top: 150px; left: 200px;
+    background-color: black;
+    width: 800px; }
+    .content .content-form h1 {
+      margin: 0px; }
+      .content .content-form h1 b {
+        color: #000;
+        background-color: #fff;
+        padding: 0px 5px;
+      }
+    .content .content-form .grid {
+      border-top: 4px dotted #fff;
+      border-bottom: 4px dotted #fff;
+      margin: 40px 0px;
+      width: 75%;
+      padding: 40px 0px; }
+      .content .content-form .grid .input-group {  }
+        .content .content-form .grid .input-group input {
+          border: none;
+          outline: none;
+          text-transform: uppercase;
+          font-size: 3rem;
+          background-color: transparent;
+          height: 50px; width: 400px; }
+        .content .content-form .grid .input-group input::placeholder {
+          margin-bottom: 20px;
+          color: #fff;
+          text-transform: uppercase;
+          font-size: 3rem; }
+    .content .content-form button {
+      color: #000;
+      background-color: #fff;
+      border: 2px solid #000;
+      text-transform: uppercase;
+      font-size: 2.5rem;
+      font-weight: bold;
+      padding: 10px; }
+    .content .content-form button:hover {
+      color: #fff;
+      background-color: #000;
+      border: 2px solid #fff;
+    }

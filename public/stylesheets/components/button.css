@@ -1,0 +1,83 @@
+.btn.btn-danger {
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+    border: none;
+    background-color: #FF0A47; }
+.btn.btn-danger:hover {
+    background-color: #fff;
+    -webkit-animation: neon-danger 1.5s ease-in-out infinite alternate;
+    -o-animation: neon-danger 1.5s ease-in-out infinite alternate;
+    animation: neon-danger 1.5s ease-in-out infinite alternate; }
+.btn.btn-danger:focus, btn.btn-danger:active {
+  background-color: #fff;
+  -webkit-animation: neon-danger 1.5s ease-in-out infinite alternate;
+  -o-animation: neon-danger 1.5s ease-in-out infinite alternate;
+  animation: neon-danger 1.5s ease-in-out infinite alternate; }
+
+.btn.btn-primary {
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+    background-color: #00F2A9;
+    border: none; }
+.btn.btn-primary:hover {
+    background-color: #fff;
+    -webkit-animation: neon-primary 1.5s ease-in-out infinite alternate;
+    -o-animation: neon-primary 1.5s ease-in-out infinite alternate;
+    animation: neon-primary 1.5s ease-in-out infinite alternate; }
+.btn.btn-primary:focus, .btn.btn-primary:active {
+  background-color: #fff;
+  -webkit-animation: neon-primary 1.5s ease-in-out infinite alternate;
+  -o-animation: neon-primary 1.5s ease-in-out infinite alternate;
+  animation: neon-primary 1.5s ease-in-out infinite alternate; }
+
+.btn.btn-submit {
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  text-transform: uppercase;
+  background-color: #00F2A9; }
+.btn.btn-submit:hover {
+  background-color: #fff;
+  -webkit-animation: neon-primary 1.5s ease-in-out infinite alternate;
+  -o-animation: neon-primary 1.5s ease-in-out infinite alternate;
+  animation: neon-primary 1.5s ease-in-out infinite alternate; }
+.btn.btn-submit:focus, .btn.btn-submit:active {
+  background-color: #fff;
+  -webkit-animation: neon-primary 1.5s ease-in-out infinite alternate;
+  -o-animation: neon-primary 1.5s ease-in-out infinite alternate;
+  animation: neon-primary 1.5s ease-in-out infinite alternate; }
+
+@keyframes neon-primary {
+    from {
+        box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff,
+        0 0 40px #00F2A9, 0 0 70px #00F2A9, 0 0 80px #00F2A9,
+        0 0 100px #00F2A9, 0 0 150px #00F2A9;
+    } to {
+          box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff,
+          0 0 20px #00F2A9, 0 0 35px #00F2A9, 0 0 40px #00F2A9,
+          0 0 50px #00F2A9, 0 0 75px #00F2A9;
+      }
+}
+
+@keyframes neon-danger {
+    from {
+        box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff,
+        0 0 40px #FF0A47, 0 0 70px #FF0A47, 0 0 80px #FF0A47,
+        0 0 100px #FF0A47, 0 0 150px #FF0A47;
+    } to {
+          box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff,
+          0 0 20px #FF0A47, 0 0 35px #FF0A47, 0 0 40px #FF0A47,
+          0 0 50px #FF0A47, 0 0 75px #FF0A47;
+      }
+}

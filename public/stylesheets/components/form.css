@@ -1,0 +1,38 @@
+.form-index {
+  width: 100%; }
+  .form-index .input-group {
+    margin-top: 80px; margin-bottom: 80px;
+    width: 100%; }
+    .form-index .input-group .form-index-input {
+      font-family: 'Lucida Grande';
+      font-size: 2rem;
+      font-weight: bold;
+      padding-left: 25px;
+      color: #fff;
+      position: absolute;
+      width: 480px; height: 50px;
+      border: none;
+      text-transform: uppercase;
+      outline: none;
+      background-color: transparent; }
+    .form-index .input-group .form-index-input::placeholder {
+      font-weight: bold;
+      color: #fff; }
+    .form-index .input-group svg {
+      width: 400px; height: 50px;
+      transition: width 0.2s;
+      position: absolute; }
+    .form-index .hover svg {
+      width: 420px; }
+    .form-index .focus svg {
+      width: 500px; }
+  .form-index .button-group {
+    margin-top: 80px; margin-bottom: 80px;
+    width: 100%; }
+    .form-index .button-group svg {
+      width: 200px; height: 50px;
+      position: absolute; }
+  .form-index .select-group {  }
+    .form-index .select-group .form-index-select {
+      height: 50px;
+    }

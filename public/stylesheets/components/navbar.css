@@ -1,0 +1,16 @@
+.navbar.navbar-default.navbar-fixed-top {
+    background-color: #fff;
+    border: none; }
+    .navbar.navbar-default.navbar-fixed-top a {
+        color: #000;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+        text-transform: uppercase;
+        font-weight: bold; }
+    .navbar.navbar-default.navbar-fixed-top a:hover {
+        margin-left: 10px;
+        margin-right: 10px;
+        color: #FF0A47; }

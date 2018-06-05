@@ -1,0 +1,69 @@
+html, body {
+    background-color: #23293B;
+    overflow-x: hidden; }
+
+.dashboard {
+    background-color: #23293B;
+    width: 100%; height: 100%; }
+
+    .dashboard .doors-supervisor {
+        border-right: 5px solid #fff;
+        background-color: #00F2A9;
+        position: fixed;
+        width: 25%; height: 100%;
+        top: 50px; left: 0px; }
+        .dashboard .doors-supervisor .supervisor {  }
+            .dashboard .doors-supervisor .supervisor .alert {  }
+                .dashboard .doors-supervisor .supervisor .alert li {
+                    padding: 10px 5px;
+                    margin: 5px 0px;
+                    font-size: 2rem;
+                    text-align: center;
+                    vertical-align: center;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    list-style-type: none; }
+                .dashboard .doors-supervisor .supervisor .alert li.alert-closed {
+                    background-color: #000;
+                    color: #fff; }
+                .dashboard .doors-supervisor .supervisor .alert li.alert-open {
+                    background-color: #fff;
+                    color: #000; }
+            .dashboard .doors-supervisor .supervisor h2 {
+                color: #000;
+                font-weight: bold;
+                text-transform: uppercase; }
+        .dashboard .doors-supervisor .disconnect {
+            position: fixed;
+            bottom: 20px; left: 30px; }
+            .dashboard .doors-supervisor .disconnect a {
+                color: #000;
+                -webkit-transition: all 0.2s;
+                -moz-transition: all 0.2s;
+                -ms-transition: all 0.2s;
+                -o-transition: all 0.2s;
+                transition: all 0.2s;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 2rem;
+                font-weight: bold; }
+            .dashboard .doors-supervisor .disconnect a:hover {
+                margin-left: 10px;
+                text-decoration: line-through; }
+
+
+    .dashboard .lists {
+        color: #eee;
+        background-color: #23293B;
+        position: absolute;
+        padding: 30px 50px;
+        width: 75%; height: 100%;
+        top: 50px; right: 0px; }
+        .dashboard .lists h1 {
+            text-transform: uppercase; }
+        .dashboard .lists .option table {
+            vertical-align: center; }
+            .dashboard .lists .option table td {
+                font-family: sans-serif;
+                font-weight: lighter;
+                padding: 5px; }

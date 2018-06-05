@@ -1,0 +1,21 @@
+.container-records {
+  width: 800px; }
+  .container-records table {
+    text-align: center;
+    border-spacing: 0px 10px;
+    border-collapse: separate; }
+    .container-records table .record {
+      background-color: #FF0A47;
+      color: #fff;
+      height: 30px; }
+    .container-records table .record.record-tag {
+      background-color: #00F2A9;
+      color: #fff; }
+      .container-records table .record td:nth-child(1) {
+        width: 100px; }
+      .container-records table .record td:nth-child(2) {
+        width: 200px; }
+      .container-records table .record td:nth-child(3) {
+        width: 150px; }
+      .container-records table .record td:nth-child(4) {
+        width: 100px; }

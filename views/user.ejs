@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/public/stylesheets/bootstrap.min.css">
+  <link rel="stylesheet" href="/public/stylesheets/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/dashboard">Tableau de bord</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/dashboard/newuser">Nouvel utilisateur</a>
+        </li>
+        <li>
+          <a href="/dashboard/newdoor">Nouvelle porte</a>
+        </li>
+        <li>
+          <a href="/dashboard/newtag">Nouveau tag</a>
+        </li>
+        <li>
+          <a href="/dashboard/records">Historique</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="news news-danger <% if (locals.flash && locals.flash.error) { %><%- "activated" %><%}%>" role="alert">
+  <p><% if (locals.flash && locals.flash.error) { %><%= flash.error %><%}%></p>
+</div>
+<div class="news news-success <% if (locals.flash && locals.flash.done) { %><%- "activated" %><%}%>" role="alert">
+  <p><% if (locals.flash && locals.flash.done) { %><%= flash.done%><%}%></p>
+</div>
+
+<div class="dashboard">
+  <div class="doors-supervisor">
+    <div class="container-fluid">
+      <div class="supervisor">
+        <h2 class="title-2">état des portes</h2>
+        <ul class="alert">
+          <% for (var i = 0; i < doors.length; i++) {%>
+          <li class="alert-<%= doors[i].STATE%> door-<%= doors[i].ID_DOOR %>">
+            <div class="margin">
+              <p></p>
+            </div>
+            <p class="door">Porte n°<%= doors[i].ID_DOOR%> : <%= doors[i].STATE %></p>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+      <div class="disconnect">
+        <a href="/disconnect">Se déconnecter</a>
+      </div>
+    </div>
+  </div>
+  <div class="lists">
+    <div class="container">
+      <div class="option option-tags-list">
+        <h1>Liste des tags de l'utilisateur</h1>
+        <div class="option-view">
+          <table>
+            <tr style="font-weight: bold;">
+              <td>ID</td>
+              <td>Nom</td>
+              <td>Date de création</td>
+              <td>Heure de création</td>
+              <td>Modifier les droits</td>
+              <td>Supprimer le tag</td>
+            </tr>
+            <% for(var i = 0; i < tags.length; i++) { %>
+            <tr>
+              <td><%= tags[i].ID_TAG %></td>
+              <td><%= tags[i].NAME %></td>
+              <td class="creation-date"><%= tags[i].CREATION_DATE %></td>
+              <td><%= tags[i].CREATION_TIME %></td>
+              <td>
+                <form action="/dashboard/tag/<%= tags[i].ID_TAG_ENCRYPTED %>" method="post">
+                  <input type="text" name="idTag" value="<%= tags[i].ID_TAG %>" hidden="hidden">
+                  <button type="submit" class="btn btn-primary">Modifier</button>
+                </form>
+              </td>
+              <td>
+                <form action="/dashboard/deletetag" method="post">
+                  <input type="text" name="idTag" value="<%= tags[i].ID_TAG %>" hidden="hidden">
+                  <button type="submit" class="btn btn-danger">Supprimer</button>
+                </form>
+              </td>
+            </tr>
+            <% } %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="/public/javascripts/jquery.js"></script>
+<script src="/public/javascripts/bootstrap.min.js"></script>
+<script src="/public/javascripts/anime.min.js" charset="utf-8"></script>
+<script src="/public/javascripts/style.js" charset="utf-8"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/public/javascripts/socket.js" charset="utf-8"></script>
+</html>

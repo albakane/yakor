@@ -1,0 +1,23 @@
+@import "/public/stylesheets/components/navbar.css";
+@import "/public/stylesheets/components/link.css";
+@import "/public/stylesheets/components/dashboard.css";
+@import "/public/stylesheets/components/button.css";
+@import "/public/stylesheets/components/news.css";
+@import "/public/stylesheets/components/form.css";
+@import "/public/stylesheets/components/records.css";
+
+@font-face {
+  src: url("/public/fonts/Warnes-Regular.ttf");
+  font-family: 'Warnes';
+}
+
+@font-face {
+  src: url("/public/fonts/Audiowide-Regular.ttf");
+  font-family: 'Audiowide';
+}
+
+@font-face {
+  src: url("/public/fonts/Lucida_Grande.ttf");
+  font-family: 'Lucida Grande';
+}
+

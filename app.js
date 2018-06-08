@@ -12,12 +12,12 @@ let http = require('http').Server(app);
 let io = require('socket.io')(http);
 
 // connect mqtt broker
-let client = mqtt.connect('mqtt://172.17.1.1:1883');
+let client = mqtt.connect('mqtt://localhost:1883');
 
 // test mqtt
 client.on('connect', function() {
   console.log('MQTT Broker connected');
-  client.subscribe('test/projet_C');
+  client.subscribe('receive/yakor');
 });
 
 client.on('message', function(topic, messageFromNRF) {
@@ -33,6 +33,7 @@ client.on('message', function(topic, messageFromNRF) {
   let Mysql = require(path.join(__dirname, "class/mysql"));
   Mysql.getTagAndDoorFromIds({tagId : tagIdEncrypted, doorId : doorIdEncrypted}, function(results) {
     if (results.length === 0) {
+      client.publish("send/yakor", "0");
       console.log('Données fausses : a configurer');
     } else {
       doorId = results[0].ID_DOOR;
@@ -41,10 +42,12 @@ client.on('message', function(topic, messageFromNRF) {
         Mysql.closeTheDoor(doorId, function(results) {
           io.emit('MQTTEvent', {state : 0, doorId : doorId});
         });
+        client.publish("send/yakor", "0");
       } else {
         Mysql.checkRight({doorId : doorId, tagId : tagId}, function(results) {
           if (results.length === 0) {
             console.log('Aucun droit sur la porte : a configurer');
+            client.publish("send/yakor", "0");
           } else {
             Mysql.createDoorOpen({doorId : doorId, tagId : tagId}, function(results) {
               if (results.error === false) {
@@ -53,6 +56,7 @@ client.on('message', function(topic, messageFromNRF) {
                 });
               }
             });
+            client.publish("send/yakor", "1");
           }
         });
       }

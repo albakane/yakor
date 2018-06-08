@@ -27,8 +27,9 @@ router.get('/records', function(req, res, next) {
     Mysql.selectAllDoors(function(results) {
         Mysql.records(function(records) {
             let doorRecords = records.doorClosedRecord;
+            console.log(doorRecords);
+            console.log(records.doorOpenRecord);
             for (let i = 0; i < doorRecords.length; i++) {
-                console.log(i);
                 for (let j = 0; j < records.doorOpenRecord.length; j++) {
                     if (doorRecords[i].date.getTime() >= records.doorOpenRecord[j].date.getTime()) {
                         doorRecords.splice(i, 0, records.doorOpenRecord[j]);
@@ -36,6 +37,11 @@ router.get('/records', function(req, res, next) {
                     }
                 }
             }
+            if (records.doorOpenRecord.length > 0) {
+              records.doorOpenRecord.forEach(function(element) {
+                doorRecords.push(element);
+              });
+	    }
             console.log(doorRecords);
             res.render('records', {
                 doors : results.content,

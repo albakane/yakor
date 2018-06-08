@@ -82,6 +82,7 @@
   let inputs = document.querySelectorAll("input")
   let indexPicture = Math.round(Math.random() * 5 + 1)
   content.style.background = '#000 url("/public/images/city-' + indexPicture + '.jpg") no-repeat right top'
+  content.style.backgroundSize = 'cover'
   for(let i = 0; i < inputs.length; i++) {
     let placeholder = inputs[i].getAttribute('placeholder')
     inputs[i].addEventListener('focus', function() {

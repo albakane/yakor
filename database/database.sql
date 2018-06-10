@@ -108,9 +108,9 @@ CREATE TABLE DOOR_OPEN (
 );
 INSERT INTO ADMIN (LOGIN, PASSWORD, PICTURE) VALUES ("Albakane", "$2b$15$qpvxd2ojxhcpO8gR1mBTRuZN5XFJ894nbTwbV32NzBLdlVQTeUPv6", "/public/images/admin.jpg");
 
-INSERT INTO USER (URL, FIRST_NAME, LAST_NAME, EMAIL) VALUES ("8M9ZwnneIxIpuX3", "Simon", "Gauthrey", "simon.gautrey@reseau.eseo.fr");
-INSERT INTO USER (URL, FIRST_NAME, LAST_NAME, EMAIL) VALUES ("R2K7WveGwzEL4lR", "Pierre-François", "Gapais", "paul-francois.gapais@reseau.eseo.fr");
-INSERT INTO USER (URL, FIRST_NAME, LAST_NAME, EMAIL) VALUES ("zYDtnZEiqrKVc6Q", "Martin", "Danton", "martin.dauton@reseau.eseo.fr");
+INSERT INTO USER (URL, FIRST_NAME, LAST_NAME, EMAIL) VALUES ("8M9ZwnneIxIpuX3", "Simon", "Gautrey", "simon.gautrey@reseau.eseo.fr");
+INSERT INTO USER (URL, FIRST_NAME, LAST_NAME, EMAIL) VALUES ("R2K7WveGwzEL4lR", "Paul-François", "Gapais", "paul-francois.gapais@reseau.eseo.fr");
+INSERT INTO USER (URL, FIRST_NAME, LAST_NAME, EMAIL) VALUES ("zYDtnZEiqrKVc6Q", "Martin", "Dauton", "martin.dauton@reseau.eseo.fr");
 INSERT INTO USER (URL, FIRST_NAME, LAST_NAME, EMAIL) VALUES ("QWiUmG55L7fvqbW", "Amélie", "Lens", "amelie.lens@reseau.eseo.fr");
 INSERT INTO USER (URL, FIRST_NAME, LAST_NAME, EMAIL) VALUES ("dvsEUQuFu5euw8n", "Deborah", "de Luca", "deborah.deluca@reseau.eseo.fr");
 INSERT INTO USER (URL, FIRST_NAME, LAST_NAME, EMAIL) VALUES ("dHr93veGAM4fGLs", "Dub", "Fire", "dub.fire@reseau.eseo.fr");

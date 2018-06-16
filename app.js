@@ -15,7 +15,7 @@ let io = require('socket.io')(http);
 let client = mqtt.connect('mqtt://localhost:1883');
 
 // test mqtt
-client.on('connect', function() {
+client.on('connect', function(connack) {
   console.log('MQTT Broker connected');
   client.subscribe('receive/yakor');
 });
@@ -33,12 +33,45 @@ client.on('message', function(topic, messageFromNRF) {
   let Mysql = require(path.join(__dirname, "class/mysql"));
   Mysql.getTagAndDoorFromIds({tagId : tagIdEncrypted, doorId : doorIdEncrypted}, function(results) {
     if (results.length === 0) {
-      client.publish("send/yakor", "0");
+      client.publish('send/yakor', '0');
+      io.emit('MQTTEventProblem', {doorId : doorId, content : 'Message reçu invalide sur l\'une des portes'});
       console.log('Données fausses : a configurer');
     } else {
       doorId = results[0].ID_DOOR;
       tagId = results[0].ID_TAG;
-      if (event === 0) {
+      Mysql.checkRight({doorId : doorId, tagId : tagId}, function(results) {
+        if (results.length === 0) {
+          io.emit('MQTTEvent', {state : 2, doorId : doorId});
+          client.publish("send/yakor", "0");
+        } else {
+          Mysql.createDoorOpen({doorId : doorId, tagId : tagId}, function(results) {
+            if (results.error === false) {
+              Mysql.openTheDoor(doorId, function(results) {
+                io.emit('MQTTEvent', {state : 1, doorId : doorId});
+                client.publish('send/yakor', '1');
+              });
+            }
+          });
+	}
+      });
+      /*if (event === 0) {
+
+       Mysql.checkRight({doorId : doorId, tagId : tagId}, function(results) {
+         if (results.length === 0) {
+           io.emit('MQTTEvent', {state : 2, doorId : doorId});
+           client.publish("send/yakor", "0");
+         } else {
+           Mysql.createDoorOpen({doorId : doorId, tagId : tagId}, function(results) {
+             if (results.error === false) {
+               Mysql.openTheDoor(doorId, function(results) {
+                 io.emit('MQTTEvent', {state : 1, doorId : doorId});
+                 client.publish('send/yakor', '1');
+               });
+             }
+           });
+         }
+       });
+
         Mysql.closeTheDoor(doorId, function(results) {
           io.emit('MQTTEvent', {state : 0, doorId : doorId});
         });
@@ -46,28 +79,32 @@ client.on('message', function(topic, messageFromNRF) {
       } else {
         Mysql.checkRight({doorId : doorId, tagId : tagId}, function(results) {
           if (results.length === 0) {
-            console.log('Aucun droit sur la porte : a configurer');
+            io.emit('MQTTEvent', {state : 2, doorId : doorId});
             client.publish("send/yakor", "0");
           } else {
             Mysql.createDoorOpen({doorId : doorId, tagId : tagId}, function(results) {
               if (results.error === false) {
                 Mysql.openTheDoor(doorId, function(results) {
                   io.emit('MQTTEvent', {state : 1, doorId : doorId});
+                  client.publish('send/yakor', '1');
                 });
               }
             });
-            client.publish("send/yakor", "1");
           }
         });
-      }
+      }*/
     }
   });
-
 });
 
 // socket.io configuration
 io.on('connection', function(socket) {
   console.log('A user is connected');
+  socket.on('close the door', function(message) {
+    let Mysql = require(path.join(__dirname, "class/mysql"));
+    Mysql.closeTheDoor(parseInt(doorId), function(results) {
+    });
+  });
 });
 
 // view engine setup

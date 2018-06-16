@@ -106,14 +106,13 @@ CREATE TABLE DOOR_OPEN (
 
   CONSTRAINT PK_ID_DOOR_OPENED PRIMARY KEY(ID_DOOR_OPEN)
 );
-INSERT INTO ADMIN (LOGIN, PASSWORD, PICTURE) VALUES ("Albakane", "$2b$15$qpvxd2ojxhcpO8gR1mBTRuZN5XFJ894nbTwbV32NzBLdlVQTeUPv6", "/public/images/admin.jpg");
+INSERT INTO ADMIN (LOGIN, PASSWORD, PICTURE) VALUES ("projetoc", "$2b$15$qpvxd2ojxhcpO8gR1mBTRuZN5XFJ894nbTwbV32NzBLdlVQTeUPv6", "/public/images/admin.jpg");
 
 INSERT INTO USER (URL, FIRST_NAME, LAST_NAME, EMAIL) VALUES ("8M9ZwnneIxIpuX3", "Simon", "Gautrey", "simon.gautrey@reseau.eseo.fr");
 INSERT INTO USER (URL, FIRST_NAME, LAST_NAME, EMAIL) VALUES ("R2K7WveGwzEL4lR", "Paul-François", "Gapais", "paul-francois.gapais@reseau.eseo.fr");
 INSERT INTO USER (URL, FIRST_NAME, LAST_NAME, EMAIL) VALUES ("zYDtnZEiqrKVc6Q", "Martin", "Dauton", "martin.dauton@reseau.eseo.fr");
 INSERT INTO USER (URL, FIRST_NAME, LAST_NAME, EMAIL) VALUES ("QWiUmG55L7fvqbW", "Amélie", "Lens", "amelie.lens@reseau.eseo.fr");
 INSERT INTO USER (URL, FIRST_NAME, LAST_NAME, EMAIL) VALUES ("dvsEUQuFu5euw8n", "Deborah", "de Luca", "deborah.deluca@reseau.eseo.fr");
-INSERT INTO USER (URL, FIRST_NAME, LAST_NAME, EMAIL) VALUES ("dHr93veGAM4fGLs", "Dub", "Fire", "dub.fire@reseau.eseo.fr");
 INSERT INTO USER (URL, FIRST_NAME, LAST_NAME, EMAIL) VALUES ("y5eI8gGQgx5zIvb", "Charlotte", "de Witte", "charlotte.dewitte@reseau.eseo.fr");
 
 INSERT INTO TAG (ID_TAG_ENCRYPTED, CREATION_DATE, CREATION_TIME, NAME, ID_USER) VALUES ("rKil43hjDKCTBfm", CURDATE(), CURTIME(), "premier tag de simon", 1);

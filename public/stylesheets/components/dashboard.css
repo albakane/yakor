@@ -5,7 +5,6 @@ html, body {
 .dashboard {
     background-color: #23293B;
     width: 100%; height: 100%; }
-
     .dashboard .doors-supervisor {
         border-right: 5px solid #fff;
         background-color: #00F2A9;
@@ -27,8 +26,12 @@ html, body {
                     background-color: #000;
                     color: #fff; }
                 .dashboard .doors-supervisor .supervisor .alert li.alert-open {
+                    animation: alert 1s ease-int-out 1 alternate;
                     background-color: #fff;
                     color: #000; }
+                .dashboard .doors-supervisor .supervisor .alert li.alert-closed.alert-noright {
+                    -webkit-animation: alert 0.5s ease-in-out 1 alternate;
+                    animation: alert 0.5s ease-in-out 1 alternate; }
             .dashboard .doors-supervisor .supervisor h2 {
                 color: #000;
                 font-weight: bold;
@@ -67,3 +70,17 @@ html, body {
                 font-family: sans-serif;
                 font-weight: lighter;
                 padding: 5px; }
+
+@keyframes alert {
+    0% { background-color: #ff0A47; }
+    10% { background-color: black; }
+    20% { background-color: #ff0a47; }
+    30% { background-color: black; }
+    40% { background-color: #ff0a47; }
+    50% { background-color: black; }
+    60% { background-color: #ff0a47; }
+    70% { background-color: black; }
+    80% { background-color: #ff0a47; }
+    90% { background-color: black; }
+    100% {  background-color: black; }
+}

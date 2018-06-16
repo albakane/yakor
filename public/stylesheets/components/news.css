@@ -29,6 +29,9 @@
     .news.news-success {
         color: #fff;
         background-color: #00F2A9; }
+    .news.news-problem {
+	color: #fff;
+        background-color: #f39c12; }
 
 @keyframes alert {
     0% { top: 0px; }
